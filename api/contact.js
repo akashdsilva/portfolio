@@ -4,8 +4,12 @@ export default async function handler(req, res) {
   }
 
   try {
+    const { name, email, message } = req.body;
+
     const payload = {
-      ...req.body,
+      name,
+      email,
+      message,
       access_key: process.env.WEB3FORMS_KEY
     };
 
@@ -16,9 +20,13 @@ export default async function handler(req, res) {
     });
 
     const result = await response.json();
-    res.status(200).json(result);
+
+    return res.status(200).json(result);
 
   } catch (error) {
-    res.status(500).json({ message: "Server error" });
+    return res.status(500).json({
+      error: "Server error",
+      details: error.message
+    });
   }
 }
