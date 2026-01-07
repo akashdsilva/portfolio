@@ -1,10 +1,22 @@
+
+export const config = {
+  runtime: "nodejs"
+};
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
   try {
+    if (!req.body) {
+      return res.status(400).json({ message: "No request body" });
+    }
+
     const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: "Missing fields" });
+    }
 
     const payload = {
       name,
