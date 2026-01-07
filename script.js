@@ -30,7 +30,7 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 });
 
-// Smooth Scrolling
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -43,7 +43,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Mobile Menu Toggle
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -58,7 +58,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Web3Forms Contact Form Handler (Direct Method - No Backend Needed)
+
 const form = document.getElementById('form');
 const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -82,20 +82,20 @@ form.addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            alert("Success! Your message has been sent.");
+            // Success message with cyberpunk style
+            showNotification("Success! Your message has been sent.", "success");
             form.reset();
         } else {
-            alert("Error: " + data.message);
+            showNotification("Error: " + data.message, "error");
         }
 
     } catch (error) {
-        alert("Something went wrong. Please try again.");
+        showNotification("Something went wrong. Please try again.", "error");
     } finally {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
     }
 });
-
 
 // Custom notification function (better than alert)
 function showNotification(message, type) {

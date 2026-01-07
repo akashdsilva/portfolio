@@ -93,14 +93,14 @@ nav {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 3px solid #ff004c;
+  border: 3px solid #1f73c2;
   margin-bottom: 2rem;
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 76, 0.5); }
-  50% { box-shadow: 0 0 40px rgba(255, 0, 76, 0.8); }
+  0%, 100% { box-shadow: 0 0 20px rgba(51, 184, 196, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(54, 135, 186, 0.8); }
 }
 
 .glitch {
